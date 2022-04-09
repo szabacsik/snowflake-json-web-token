@@ -1,0 +1,71 @@
+{
+    "name": "szabacsik/snowflake-json-web-token",
+    "description": "Snowflake JSON Web Token",
+    "authors":
+    [
+        {
+            "name": "András Szabácsik",
+            "homepage": "https://github.com/szabacsik/"
+        }
+    ],
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config":
+    {
+        "allow-plugins":
+        {}
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "Szabacsik\\SnowflakeJsonWebToken\\": "src/"
+        }
+    },
+    "autoload-dev":
+    {
+        "psr-4":
+        {
+            "Szabacsik\\SnowflakeJsonWebToken\\Test\\": "tests"
+        }
+    },
+    "require":
+    {
+        "php": "^8.0",
+        "firebase/php-jwt": "*",
+        "ext-openssl": "*",
+        "ext-mbstring": "*"
+    },
+    "require-dev":
+    {
+        "phpunit/phpunit": "*",
+        "squizlabs/php_codesniffer": "*",
+        "vimeo/psalm": "*",
+        "phpstan/phpstan": "*"
+    },
+    "scripts":
+    {
+        "phpunit": "phpunit --verbose --colors=always",
+        "phpunit-coverage": "phpunit --verbose --colors=always --coverage-html build/coverage",
+        "test":
+        [
+            "@phpunit"
+        ],
+        "codesniffer":
+        [
+            "phpcs --standard=PSR12 src",
+            "phpcs --standard=PSR12 tests"
+        ],
+        "phpstan":
+        [
+            "phpstan analyse --level 8 src",
+            "phpstan analyse --level 8 tests"
+        ],
+        "psalm":
+        [
+            "psalm --show-info=true"
+        ]
+    }
+}
